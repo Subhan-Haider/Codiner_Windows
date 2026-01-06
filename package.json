@@ -6,7 +6,7 @@
   "main": ".vite/build/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codiner-sh/codiner.git"
+    "url": "https://github.com/Subhan-Haider/codiner.git"
   },
   "engines": {
     "node": ">=20"
