@@ -2,7 +2,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import { DeepLinkProvider } from "../contexts/DeepLinkContext";
-import { Toaster } from "sonner";
+import { MadeWithCodiner } from "@/components/made-with-codiner";
 import { TitleBar } from "./TitleBar";
 import { useEffect, type ReactNode } from "react";
 import { useRunApp } from "@/hooks/useRunApp";
@@ -105,7 +105,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               {children}
             </div>
-            <Toaster richColors />
+            <MadeWithCodiner />
           </SidebarProvider>
         </DeepLinkProvider>
       </ThemeProvider>
