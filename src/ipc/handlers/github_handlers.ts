@@ -7,7 +7,7 @@ import fs from "node:fs";
 import { getCodinerAppPath } from "../../paths/paths";
 import { db } from "../../db";
 import { apps } from "../../db/schema";
-import type { CloneRepoParams, CloneRepoReturnType } from "@/ipc/ipc_types";
+import type { CloneRepoParams, CloneRepoReturnType } from "../ipc_types";
 import { eq } from "drizzle-orm";
 import { GithubUser } from "../../lib/schemas";
 import log from "electron-log";
@@ -695,8 +695,6 @@ async function handleCloneRepoFromUrl(
       .values({
         name: finalAppName,
         path: finalAppName,
-        createdAt: new Date(),
-        updatedAt: new Date(),
         githubOrg: owner,
         githubRepo: repoName,
         githubBranch: "main",
