@@ -1,0 +1,435 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+/* Load Geist Font */
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("/node_modules/geist/dist/fonts/geist-mono/GeistMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("/node_modules/geist/dist/fonts/geist-mono/GeistMono-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("/node_modules/geist/dist/fonts/geist-mono/GeistMono-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("/node_modules/geist/dist/fonts/geist-sans/Geist-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("/node_modules/geist/dist/fonts/geist-sans/Geist-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("/node_modules/geist/dist/fonts/geist-sans/Geist-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+.app-region-drag {
+    -webkit-app-region: drag;
+}
+
+.no-app-region-drag {
+    -webkit-app-region: no-drag;
+}
+
+body[data-scroll-locked] .app-region-drag {
+    -webkit-app-region: no-drag;
+}
+
+.h-screenish {
+    height: calc(100vh - 64px);
+}
+
+:root {
+    --docs-bg: #f8fafc;
+    --default-font-family: "Geist", "Inter", system-ui, sans-serif;
+    --default-mono-font-family: "Geist Mono", "Fira Code", monospace;
+
+    /* Vibrant Purple Light Theme */
+    --background: #fafafa;
+    --background-lighter: #ffffff;
+    --background-darker: #f5f3ff;
+
+    --foreground: #1e1b4b;
+    --card: #ffffff;
+    --card-foreground: #1e1b4b;
+    --popover: #ffffff;
+    --popover-foreground: #1e1b4b;
+
+    /* Vibrant Purple Primary */
+    --primary: #7c3aed;
+    --primary-foreground: #ffffff;
+
+    /* Purple-tinted Secondary */
+    --secondary: #f5f3ff;
+    --secondary-foreground: #5b21b6;
+
+    --muted: #f5f3ff;
+    --muted-foreground: #6b7280;
+
+    /* Purple Accent */
+    --accent: #ede9fe;
+    --accent-foreground: #7c3aed;
+
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+
+    --border: #e9d5ff;
+    --input: #e9d5ff;
+    --ring: #a78bfa;
+
+    --radius: 1rem;
+
+    /* Vibrant Sidebar */
+    --sidebar: #faf5ff;
+    --sidebar-foreground: #5b21b6;
+    --sidebar-primary: #7c3aed;
+    --sidebar-selected: #ede9fe;
+}
+
+.dark {
+    --docs-bg: #09090b;
+
+    /* Reliable Premium Dark Palette */
+    --background: #09090b;
+    --background-lighter: #18181b;
+    --background-darker: #030303;
+
+    --foreground: #fafafa;
+    --card: #09090b;
+    --card-foreground: #fafafa;
+    --popover: #09090b;
+    --popover-foreground: #fafafa;
+
+    --primary: #6366f1;
+    --primary-foreground: #09090b;
+
+    --secondary: #27272a;
+    --secondary-foreground: #fafafa;
+
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+
+    --accent: #6366f11a;
+    --accent-foreground: #6366f1;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #6366f1;
+
+    --sidebar: #0c0c0e;
+    --sidebar-foreground: #f4f4f5;
+    --sidebar-primary: #6366f1;
+    --sidebar-selected: #6366f120;
+}
+
+/* Premium Utilities */
+.glass {
+    background: color-mix(in srgb, var(--background) 70%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid oklch(1 0 0 / 0.1);
+}
+
+.glass-dark {
+    background: color-mix(in srgb, var(--background-darker) 80%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid oklch(1 0 0 / 0.05);
+}
+
+.premium-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+}
+
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+}
+
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+.animate-pulse-soft {
+    animation: pulse-soft 4s ease-in-out infinite;
+}
+
+@theme inline {
+    --container-6xs: 10rem;
+    --container-5xs: 12rem;
+    --container-4xs: 14rem;
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply text-foreground;
+        background-color: var(--background);
+        background-image:
+            radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.05) 0%, transparent 50%);
+        min-height: 100vh;
+        font-family: var(--default-font-family);
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+.dark body {
+    background-image:
+        radial-gradient(at 0% 0%, color-mix(in srgb, var(--primary) 8%, transparent) 0%, transparent 50%),
+        radial-gradient(at 100% 100%, color-mix(in srgb, var(--primary) 5%, transparent) 0%, transparent 50%);
+}
+
+/* Friendly heading sizes */
+h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+h5 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+h6 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+@layer base {
+    :root {
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 240 5.3% 26.1%;
+        --sidebar-primary: 240 5.9% 10%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 4.8% 95.9%;
+        --sidebar-accent-foreground: 240 5.9% 10%;
+        --sidebar-border: 220 13% 91%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@media (pointer: fine) {
+    @supports not (selector(::-webkit-scrollbar)) {
+        * {
+            scrollbar-color: #dadce0 transparent;
+            scrollbar-gutter: auto;
+            scrollbar-width: thin;
+        }
+    }
+
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+        height: 12px;
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: content-box currentColor;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        color: #dadce0;
+        min-height: 48px;
+        min-width: 48px;
+    }
+
+    :hover::-webkit-scrollbar-thumb {
+        color: #80868b;
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        color: #5f6368;
+    }
+
+    ::-webkit-scrollbar-button {
+        height: 0;
+        width: 0;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-marquee {
+    animation: marquee 2s linear infinite;
+}
+
+/* In-between text-xs and text-sm */
+.text-xs-sm {
+    font-size: 0.82rem;
+}
