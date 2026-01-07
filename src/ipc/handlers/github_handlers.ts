@@ -16,9 +16,20 @@ import path from "node:path"; // ← ADD THIS
 
 const logger = log.scope("github_handlers");
 
-// --- GitHub Device Flow Constants ---
-// TODO: Fetch this securely, e.g., from environment variables or a config file
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || "Ov23liWV2HdC0RBLecWx";
+// --- GitHub Authentication Methods ---
+//
+// Codiner uses GitHub Device Flow OAuth (recommended for desktop apps):
+// - No callback URLs needed (unlike traditional OAuth apps)
+// - User visits github.com/device and enters a code
+// - App securely polls for access token
+// - Appropriate for public desktop applications
+//
+// Alternative methods (not implemented for security):
+// - Traditional OAuth App: Requires callback URLs, better for web apps
+// - Personal Access Tokens: Only for personal development/testing
+//
+// TODO: Fetch CLIENT_ID securely from environment variables or config
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || "Ov23li7iYZp0kbD0EiIe";
 
 // Use test server URLs when in test mode
 
