@@ -709,9 +709,6 @@ async function handleCloneRepoFromUrl(
       .values({
         name: finalAppName,
         path: finalAppName,
-        // Only insert known schema columns; remove non-schema properties
-        // (githubOrg and githubRepo must actually exist in the schema definition of 'apps' or must be omitted)
-        githubBranch: "main",
         installCommand: installCommand || null,
         startCommand: startCommand || null,
       })
@@ -781,9 +778,9 @@ export async function updateAppGithubRepo({
   await db
     .update(schema.apps)
     .set({
-      github_org: org,
-      github_repo: repo,
-      github_branch: branch || "main",
+      githubOrg: org,
+      githubRepo: repo,
+      githubBranch: branch || "main",
     })
     .where(eq(schema.apps.id, appId));
 }

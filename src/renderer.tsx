@@ -17,6 +17,7 @@ import { useSetAtom } from "jotai";
 import { pendingAgentConsentsAtom } from "./atoms/chatAtoms";
 import { useState } from "react";
 import logo from "../assets/logo.png";
+import { Toaster } from "sonner";
 import "./styles/globals.css";
 
 console.log("Running in mode:", import.meta.env.MODE);
@@ -198,6 +199,7 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <PostHogProvider client={posthogClient}>
         <App />
+        <Toaster richColors position="top-right" />
       </PostHogProvider>
     </QueryClientProvider>
   </StrictMode>,

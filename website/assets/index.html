@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codiner - Revolutionary AI-Powered App Builder | 25 Advanced Features</title>
+    <meta name="description" content="Build production-ready applications with AI assistance. 25+ enterprise features including real-time collaboration, drag-and-drop UI builder, AI code generation, and advanced debugging. Local, open-source, privacy-first.">
+    <meta name="keywords" content="AI app builder, full-stack development, real-time collaboration, drag-and-drop UI, AI code generation, advanced debugging, enterprise features">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="canonical" href="https://codiner.online">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'codiner': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49'
+                        },
+                        'gradient': {
+                            'start': '#0ea5e9',
+                            'end': '#8b5cf6'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                        'fade-in-left': 'fadeInLeft 0.6s ease-out forwards',
+                        'fade-in-right': 'fadeInRight 0.6s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
+                        'gradient-shift': 'gradientShift 8s ease infinite',
+                        'bounce-gentle': 'bounceGentle 3s ease-in-out infinite',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                        'slide-in-bottom': 'slideInBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        fadeInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(14, 165, 233, 0.6)' }
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        slideInBottom: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'mesh-gradient': 'linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)'
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for advanced effects */
+        .hero-gradient {
+            background: linear-gradient(135deg,
+                rgba(14, 165, 233, 0.1) 0%,
+                rgba(139, 92, 246, 0.1) 50%,
+                rgba(16, 185, 129, 0.1) 100%);
+            backdrop-filter: blur(100px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(2n) {
+            animation-delay: -2s;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .particle:nth-child(3n) {
+            animation-delay: -4s;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+            border-radius: 4px;
+        }
+
+        /* Focus styles for accessibility */
+        .focus-ring:focus {
+            outline: 2px solid #0ea5e9;
+            outline-offset: 2px;
+        }
+
+        /* Loading animation */
+        .loading-dots::after {
+            content: '';
+            animation: loading-dots 1.5s infinite;
+        }
+
+        @keyframes loading-dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-card-dark z-50 border-b border-slate-200/20 dark:border-slate-700/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center group cursor-pointer">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                            <div class="relative bg-slate-900 dark:bg-slate-800 rounded-lg p-2">
+                                <img src="/logo.png" alt="Codiner Logo" class="h-6 w-6">
+                            </div>
+                        </div>
+                        <span class="ml-3 text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+                            Codiner
+                        </span>
+                        <div class="ml-3 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-medium border border-blue-200/50 dark:border-blue-800/50 animate-pulse-glow">
+                            25+ Features
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex space-x-8">
+                        <a href="#features" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:scale-105 relative group">
+                            Features
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="#templates" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:scale-105 relative group">
+                            Templates
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="#pricing" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:scale-105 relative group">
+                            Pricing
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="#docs" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:scale-105 relative group">
+                            Docs
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="#community" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:scale-105 relative group">
+                            Community
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="showAuthModal('signin')" class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors focus-ring">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                        </svg>
+                        Sign In
+                    </button>
+
+                    <button class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors focus-ring">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                        Enterprise
+                    </button>
+
+                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 focus-ring">
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Try Pro
+                        </span>
+                    </button>
+
+                    <button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-all duration-300 transform hover:scale-105 focus-ring">
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Download
+                        </span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white focus-ring" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Dynamic Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-blue-950/30 dark:to-purple-950/30">
+            <!-- Animated Mesh Gradient -->
+            <div class="absolute inset-0 bg-mesh-gradient animate-gradient-shift"></div>
+
+            <!-- Floating Particles -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="particle absolute top-20 left-20 w-32 h-32"></div>
+                <div class="particle absolute top-40 right-32 w-24 h-24"></div>
+                <div class="particle absolute bottom-32 left-40 w-40 h-40"></div>
+                <div class="particle absolute bottom-20 right-20 w-28 h-28"></div>
+                <div class="particle absolute top-1/2 left-1/4 w-20 h-20"></div>
+                <div class="particle absolute top-3/4 right-1/4 w-36 h-36"></div>
+            </div>
+
+            <!-- Geometric Shapes -->
+            <div class="absolute top-10 right-10 w-64 h-64 border border-blue-200/20 dark:border-blue-800/20 rounded-full animate-float"></div>
+            <div class="absolute bottom-10 left-10 w-48 h-48 border border-purple-200/20 dark:border-purple-800/20 rounded-lg rotate-45 animate-float" style="animation-delay: -2s;"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <!-- Badge -->
+                <div class="inline-flex items-center bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-full px-6 py-3 text-sm font-semibold border border-blue-200/20 dark:border-blue-800/20 mb-8 animate-fade-in-up">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Trusted by 5,000+ Developers Worldwide
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <span class="block text-slate-900 dark:text-white mb-2">Build Smart Apps</span>
+                    <span class="block text-gradient animate-gradient-shift bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        Faster with AI
+                    </span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.4s;">
+                    Create dashboards, SaaS products, and automation tools in minutes.
+                    <strong>AI-powered development</strong> that turns your ideas into production-ready applications instantly.
+                </p>
+
+                <!-- Feature Pills -->
+                <div class="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <span class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-slate-200/50 dark:border-slate-700/50 hover:scale-105 transition-transform">
+                        🤖 AI Code Generation
+                    </span>
+                    <span class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-slate-200/50 dark:border-slate-700/50 hover:scale-105 transition-transform">
+                        ⚡ Real-Time Collaboration
+                    </span>
+                    <span class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-slate-200/50 dark:border-slate-700/50 hover:scale-105 transition-transform">
+                        🎨 Drag & Drop UI Builder
+                    </span>
+                    <span class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-slate-200/50 dark:border-slate-700/50 hover:scale-105 transition-transform">
+                        🔒 Enterprise Security
+                    </span>
+                    <span class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-slate-200/50 dark:border-slate-700/50 hover:scale-105 transition-transform">
+                        🚀 10+ Deployment Platforms
+                    </span>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 mb-8 animate-fade-in-up" style="animation-delay: 0.8s;">
+                    <!-- Primary CTA -->
+                    <div class="group relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        <button onclick="showAuthModal('signup')" class="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 focus-ring flex items-center space-x-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span>Get Started Free</span>
+                        </button>
+                    </div>
+
+                    <!-- Secondary CTA -->
+                    <button onclick="showAuthModal('signin')" class="bg-white/10 dark:bg-slate-800/50 backdrop-blur-sm text-slate-900 dark:text-white px-8 py-5 rounded-xl font-semibold text-lg border border-slate-200/20 dark:border-slate-700/20 hover:bg-white/20 dark:hover:bg-slate-800/70 transition-all duration-300 focus-ring flex items-center space-x-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>View Demo</span>
+                    </button>
+                </div>
+
+                <!-- Social Proof Stats -->
+                <div class="flex flex-wrap justify-center gap-8 mb-12 animate-fade-in-up" style="animation-delay: 1s;">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-slate-900 dark:text-white">5,000+</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400">Active Builders</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-slate-900 dark:text-white">50+</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400">Templates</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-slate-900 dark:text-white">4.9/5</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400">User Rating</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-slate-900 dark:text-white">Free</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400">Forever</div>
+                    </div>
+                </div>
+
+                <!-- Platform Downloads -->
+                <div class="flex flex-wrap justify-center gap-3 mb-8 animate-fade-in-up" style="animation-delay: 1s;">
+                    <button class="bg-slate-900/80 hover:bg-slate-900 text-white px-4 py-2 rounded-lg font-medium backdrop-blur-sm transition-all duration-200 hover:scale-105 focus-ring text-sm">
+                        macOS
+                    </button>
+                    <button class="bg-slate-900/80 hover:bg-slate-900 text-white px-4 py-2 rounded-lg font-medium backdrop-blur-sm transition-all duration-200 hover:scale-105 focus-ring text-sm">
+                        Windows
+                    </button>
+                    <button class="bg-slate-900/80 hover:bg-slate-900 text-white px-4 py-2 rounded-lg font-medium backdrop-blur-sm transition-all duration-200 hover:scale-105 focus-ring text-sm">
+                        Linux
+                    </button>
+                    <button class="bg-slate-900/80 hover:bg-slate-900 text-white px-4 py-2 rounded-lg font-medium backdrop-blur-sm transition-all duration-200 hover:scale-105 focus-ring text-sm">
+                        Web App
+                    </button>
+                </div>
+
+                <!-- Interactive Demo Button -->
+                <div class="animate-fade-in-up" style="animation-delay: 1.2s;">
+                    <button class="group inline-flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors focus-ring">
+                        <svg class="w-5 h-5 group-hover:animate-bounce-gentle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="font-medium">See it in action</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
+                    <svg class="w-6 h-6 text-slate-400 dark:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900 border-t border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+            <!-- Company Logos -->
+            <div class="text-center mb-12">
+                <p class="text-slate-600 dark:text-slate-400 text-sm font-medium mb-8">Trusted by teams at</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                    <!-- Placeholder logos - replace with real ones -->
+                    <div class="bg-slate-200 dark:bg-slate-700 rounded-lg px-4 py-2 text-slate-600 dark:text-slate-400 font-semibold">TechCorp</div>
+                    <div class="bg-slate-200 dark:bg-slate-700 rounded-lg px-4 py-2 text-slate-600 dark:text-slate-400 font-semibold">StartupXYZ</div>
+                    <div class="bg-slate-200 dark:bg-slate-700 rounded-lg px-4 py-2 text-slate-600 dark:text-slate-400 font-semibold">DevAgency</div>
+                    <div class="bg-slate-200 dark:bg-slate-700 rounded-lg px-4 py-2 text-slate-600 dark:text-slate-400 font-semibold">ProductLabs</div>
+                    <div class="bg-slate-200 dark:bg-slate-700 rounded-lg px-4 py-2 text-slate-600 dark:text-slate-400 font-semibold">CodeWorks</div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200/50 dark:border-slate-700/50">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            S
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-slate-900 dark:text-white">Sarah Chen</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400">SaaS Founder</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300 italic">
+                        "Built my entire SaaS dashboard in 3 days. The AI suggestions are incredible - it's like having a senior developer in your pocket."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200/50 dark:border-slate-700/50">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            M
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-slate-900 dark:text-white">Marcus Rodriguez</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400">Full-Stack Developer</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300 italic">
+                        "Finally, a tool that understands what I want to build. No more wrestling with frameworks - just describe your app and watch it come to life."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200/50 dark:border-slate-700/50">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-semibold text-slate-900 dark:text-white">Alex Thompson</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400">Agency Owner</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300 italic">
+                        "Our client delivery time dropped by 60%. Codiner handles the heavy lifting so we can focus on strategy and design."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-purple-50/30 dark:from-slate-800/50 dark:to-purple-900/30"></div>
+
+        <div class="max-w-7xl mx-auto relative">
+            <!-- Section Header -->
+            <div class="text-center mb-20 animate-on-scroll">
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                    <span class="block text-slate-900 dark:text-white">Everything You Need</span>
+                    <span class="block text-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        to Build Smarter
+                    </span>
+                </h2>
+
+                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
+                    Powerful AI features work seamlessly with modern development tools.
+                    From code generation to deployment, build production-ready apps faster than ever.
+                </p>
+            </div>
+
+            <!-- Key Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="group feature-card glass-card-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-on-scroll text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">AI App Builder</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Turn ideas into apps with intelligent code generation and smart suggestions.</p>
+                </div>
+
+                <div class="group feature-card glass-card-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-on-scroll text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Secure Authentication</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Built-in user management with secure login, signup, and permission controls.</p>
+                </div>
+
+                <div class="group feature-card glass-card-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-on-scroll text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Real-Time Dashboard</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Interactive analytics and monitoring with live data updates and beautiful charts.</p>
+                </div>
+
+                <div class="group feature-card glass-card-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-on-scroll text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Automation Workflows</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Streamline processes with intelligent automation and workflow management.</p>
+                </div>
+
+                <div class="group feature-card glass-card-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-on-scroll text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">API Integrations</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Connect with 200+ APIs and services through our unified integration platform.</p>
+                </div>
+
+                <div class="group feature-card glass-card-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-on-scroll text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Scalable Architecture</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Built for growth with cloud-native design and enterprise-grade performance.</p>
+                </div>
+            </div>
+
+            <!-- Feature Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 animate-on-scroll">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">25+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium">Enterprise Features</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">6</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium">Programming Languages</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">15+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium">Framework Support</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gradient mb-2">10+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium">Deployment Platforms</div>
+                </div>
+            </div>
+
+            <!-- Interactive Demo Section -->
+            <div class="relative bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl p-8 mb-16 animate-on-scroll">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">See Codiner in Action</h3>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                        Experience the power of AI-driven development with our interactive demo
+                    </p>
+                </div>
+
+                <!-- Mock Code Editor -->
+                <div class="bg-slate-900 dark:bg-slate-800 rounded-xl p-6 shadow-2xl max-w-4xl mx-auto">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="text-xs text-slate-400">codiner-demo.tsx</div>
+                    </div>
+
+                    <div class="space-y-2 font-mono text-sm">
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">1</span>
+                            <span class="text-purple-400">import</span>
+                            <span class="text-white"> {`{ useState, useEffect }`}</span>
+                            <span class="text-purple-400"> from</span>
+                            <span class="text-green-400"> 'react'</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">2</span>
+                            <span class="text-white"></span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">3</span>
+                            <span class="text-purple-400">function</span>
+                            <span class="text-yellow-400"> App</span>
+                            <span class="text-white">() {</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">4</span>
+                            <span class="text-blue-400 ml-4">  const</span>
+                            <span class="text-white"> [count, setCount] = </span>
+                            <span class="text-yellow-400">useState</span>
+                            <span class="text-white">(0)</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">5</span>
+                            <span class="text-white ml-4"></span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">6</span>
+                            <span class="text-blue-400 ml-4">  return</span>
+                            <span class="text-white"> (</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">7</span>
+                            <span class="text-orange-400 ml-8">    &lt;div className="app"&gt;</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">8</span>
+                            <span class="text-orange-400 ml-12">      &lt;h1&gt;Hello Codiner&lt;/h1&gt;</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">9</span>
+                            <span class="text-orange-400 ml-12">      &lt;p&gt;Count: {`{count}`}&lt;/p&gt;</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">10</span>
+                            <span class="text-orange-400 ml-12">      &lt;button onClick={</span>
+                            <span class="text-yellow-400">() => setCount(count + 1)</span>
+                            <span class="text-orange-400">}&gt;</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">11</span>
+                            <span class="text-orange-400 ml-16">        Click me</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">12</span>
+                            <span class="text-orange-400 ml-12">      &lt;/button&gt;</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">13</span>
+                            <span class="text-orange-400 ml-8">    &lt;/div&gt;</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">14</span>
+                            <span class="text-white">  )</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-slate-500 w-8 text-right mr-4">15</span>
+                            <span class="text-white">}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus-ring">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Try Interactive Demo
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 animate-on-scroll">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="block text-slate-900 dark:text-white">How It</span>
+                    <span class="block text-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        Works
+                    </span>
+                </h2>
+                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+                    From idea to production in minutes. Our AI-powered platform handles the complexity so you can focus on building great products.
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Step 1 -->
+                <div class="text-center animate-on-scroll">
+                    <div class="relative mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">1</span>
+                        </div>
+                        <div class="absolute top-16 left-1/2 transform -translate-x-1/2 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 hidden md:block"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Describe Your Idea</h3>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        Tell Codiner what you want to build in plain English. Our AI understands your requirements and creates a comprehensive plan.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center animate-on-scroll">
+                    <div class="relative mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">2</span>
+                        </div>
+                        <div class="absolute top-16 left-1/2 transform -translate-x-1/2 w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-600 hidden md:block"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">AI Builds the System</h3>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        Watch as our AI generates production-ready code, sets up databases, creates APIs, and builds your entire application structure.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center animate-on-scroll">
+                    <div class="relative mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">3</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Launch & Scale</h3>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        Deploy instantly to any platform. Your app is production-ready with monitoring, analytics, and automatic scaling built-in.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Demo Video Placeholder -->
+            <div class="bg-slate-200 dark:bg-slate-800 rounded-2xl p-12 text-center animate-on-scroll">
+                <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">See Codiner in Action</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-6">Watch how we transform ideas into production apps in under 5 minutes</p>
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus-ring flex items-center mx-auto">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Watch 2-Minute Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative">
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                Start Building Smarter
+                <span class="block text-yellow-300">Software Today</span>
+            </h2>
+
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join 5,000+ developers who are already building faster with AI.
+                Create your first app in minutes - completely free.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <button onclick="showAuthModal('signup')" class="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 focus-ring flex items-center justify-center shadow-2xl">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Get Started Free - No Credit Card
+                </button>
+
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 focus-ring">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                    Talk to Sales
+                </button>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 text-blue-100 text-sm">
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Free forever
+                </span>
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    No setup required
+                </span>
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Cancel anytime
+                </span>
+            </div>
+        </div>
+    </section>
+        </div>
+    </section>
+
+    <!-- Why Local Section -->
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-blue-50/30 to-transparent dark:from-transparent dark:via-blue-950/30 dark:to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto relative">
+            <div class="text-center mb-20 animate-on-scroll">
+                <div class="inline-flex items-center bg-gradient-to-r from-emerald-500/10 to-green-600/10 text-emerald-600 dark:text-emerald-400 rounded-full px-6 py-3 text-sm font-medium border border-emerald-200/20 dark:border-emerald-800/20 mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    Privacy First Architecture
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="block text-slate-900 dark:text-white">Your Data</span>
+                    <span class="block text-gradient bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+                        Stays Local
+                    </span>
+                </h2>
+
+                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
+                    Unlike cloud-based alternatives, Codiner runs entirely on your machine.
+                    Your code, your data, your intellectual property—always under your control.
+                </p>
+            </div>
+
+            <!-- Local Benefits Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Privacy & Security -->
+                <div class="group glass-card-dark rounded-2xl p-8 hover:scale-105 transition-all duration-300 animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Privacy & Security</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Your code never leaves your machine. No cloud uploads, no data sharing, no third-party access. Complete privacy and security.</p>
+                    <div class="flex items-center text-emerald-600 dark:text-emerald-400 font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Enterprise-grade encryption
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="group glass-card-dark rounded-2xl p-8 hover:scale-105 transition-all duration-300 animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Lightning Fast</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">No network latency, no API rate limits, no server response times. Instant feedback and real-time collaboration on your local network.</p>
+                    <div class="flex items-center text-blue-600 dark:text-blue-400 font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Sub-millisecond response times
+                    </div>
+                </div>
+
+                <!-- Control & Flexibility -->
+                <div class="group glass-card-dark rounded-2xl p-8 hover:scale-105 transition-all duration-300 animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:animate-bounce-gentle">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Full Control</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Customize everything to your needs. Extend functionality with plugins, modify themes, integrate with your existing tools and workflows.</p>
+                    <div class="flex items-center text-purple-600 dark:text-purple-400 font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Plugin architecture & API
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local vs Cloud Comparison -->
+            <div class="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-8 animate-on-scroll">
+                <h3 class="text-2xl font-bold text-center text-slate-900 dark:text-white mb-8">Local vs Cloud Development</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-semibold text-red-600 dark:text-red-400 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            Cloud-Based Tools
+                        </h4>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                                Data sent to third-party servers
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                                Network-dependent performance
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                                Vendor lock-in and pricing changes
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-semibold text-green-600 dark:text-green-400 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Codiner Local
+                        </h4>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                100% offline, privacy-first
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Lightning-fast, instant feedback
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Own your tools, no vendor lock-in
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Feedback
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                    Loved by builders around the world
+                </h3>
+                <p class="text-gray-600 mb-8">See what users are saying about Codiner across social media and community platforms.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">@Fluxer_automações</p>
+                            <p class="text-sm text-gray-500">Social Media</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Codiner completely changed the way I build web interfaces. What I love the most is how intuitive and fast it is — it feels like having a design and dev partner that truly understands my ideas."</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">u/redditissocoolyoyo</p>
+                            <p class="text-sm text-gray-500">Reddit</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"I built a poker game with Codiner. It worked very well. The team is working very diligently to add enhancements and fix bugs to make Codiner an even better tool. Best of all, it's local."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">u/morgankhalil</p>
+                            <p class="text-sm text-gray-500">Reddit</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"You're a genius. This is better than 95% of the other things I have tried, and I've tried them all. Going back 25 years haha. You're really on to something here."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Community
+            </h2>
+            <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                More than an app, it's a community.
+            </h3>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+                Your feedback shapes our software—every release includes improvements and features you asked for.
+            </p>
+
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="#reddit" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 6.628 5.374 12 12 12s12-5.372 12-12C24 5.373 18.626 0 12 0zm5.568 8.16c-.793 0-1.437.644-1.437 1.437s.644 1.437 1.437 1.437 1.437-.644 1.437-1.437-.644-1.437-1.437-1.437zm-11.136 0c-.793 0-1.437.644-1.437 1.437s.644 1.437 1.437 1.437 1.437-.644 1.437-1.437-.644-1.437-1.437-1.437zM12 4.5c2.669 0 4.833 2.164 4.833 4.833 0 .61-.132 1.192-.371 1.722-.005.012-.012.023-.012.035 0 0-.74 4.072-4.452 4.072s-4.452-4.072-4.452-4.072c0-.012-.007-.023-.012-.035-.239-.53-.371-1.112-.371-1.722C7.167 6.664 9.331 4.5 12 4.5zm2.283 10.833c.106.106.247.166.398.166.151 0 .292-.06.398-.166.196-.196.196-.514 0-.71-.093-.093-.217-.145-.398-.145s-.305.052-.398.145c-.196.196-.196.514 0 .71zm-4.566 0c.106.106.247.166.398.166.151 0 .292-.06.398-.166.196-.196.196-.514 0-.71-.093-.093-.217-.145-.398-.145s-.305.052-.398.145c-.196.196-.196.514 0 .71z"/>
+                    </svg>
+                    <span>Reddit</span>
+                </a>
+                <a href="#github" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="#twitter" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                    <span>X (Twitter)</span>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 max-w-md mx-auto">
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">Meet our community ambassadors</h4>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://via.placeholder.com/48" alt="Ambassador" class="w-12 h-12 rounded-full">
+                        <div>
+                            <p class="font-semibold">Community Builder</p>
+                            <p class="text-sm text-gray-600">YouTube Channel • Help Center</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Subscribe to our newsletter
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Stay updated with new releases and upcoming features — spam-free.
+            </p>
+
+            <div class="max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input
+                        type="email"
+                        placeholder="Email address"
+                        class="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                    >
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Plans Section -->
+    <section id="pricing" class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold mb-6 animate-bounce-subtle">
+                    <span class="mr-2">💎</span>
+                    Flexible Pricing for Every Builder
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                    Choose Your
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Perfect Plan</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    From individual developers to enterprise teams, Codiner scales with your needs.
+                    All plans include our 1000+ features with different usage limits and support levels.
+                </p>
+            </div>
+
+            <!-- Plan Toggle -->
+            <div className="flex justify-center mb-12">
+                <div class="bg-white rounded-2xl p-2 shadow-lg border">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-sm font-medium text-gray-600">Monthly</span>
+                        <button class="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-600 transition-colors">
+                            <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1"></span>
+                        </button>
+                        <span class="text-sm font-medium text-gray-900">Yearly</span>
+                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full ml-2">Save 20%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-transparent hover:border-blue-200 transition-colors">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Codiner Free</h3>
+                        <div class="text-4xl font-bold text-gray-900 mb-6">Free</div>
+
+                        <p class="text-gray-600 mb-8">Perfect for getting started and building apps.</p>
+
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Local, open-source AI App Builder
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Downloadable for macOS & Windows
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                No sign-up required
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Bring your own API key
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Community support
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            RECOMMENDED
+                        </span>
+                    </div>
+
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Codiner Pro</h3>
+                        <div class="text-4xl font-bold text-gray-900 mb-2">$20</div>
+                        <div class="text-gray-600 mb-6">/month</div>
+
+                        <p class="text-gray-600 mb-8">Unlock powerful AI modes and exclusive Pro features.</p>
+
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Everything in Codiner Free plus...
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Exclusive Pro modes to work on large codebases
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                200 AI credits/month
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Full Codiner Academy access
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-shadow">
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Max Plan -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-transparent hover:border-purple-200 transition-colors">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Codiner Max</h3>
+                        <div class="text-4xl font-bold text-gray-900 mb-2">$79</div>
+                        <div class="text-gray-600 mb-6">/month</div>
+
+                        <p class="text-gray-600 mb-8">For building large, complex apps.</p>
+
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Everything in Codiner Pro plus...
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                900 AI credits/month
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Prioritized access to office hours
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Reload credits at any time
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Available as upgrade
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-600">
+                    Have the freedom to upgrade or downgrade whenever you want – there's no lock-in.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Creator Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Why I created Codiner...
+            </h2>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm mb-8">
+                <img src="https://via.placeholder.com/120x120" alt="Creator" class="w-30 h-30 rounded-full mx-auto mb-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">[Creator Name], Creator of Codiner</h3>
+                <blockquote class="text-lg text-gray-700 italic mb-6">
+                    "I created Codiner as a free, local, and open-source alternative because I believe builders should feel like true owners—not renters—of their app-building platform. Codiner eliminates artificial limits and provides a fully capable app builder you can use freely from start to finish. Codiner app will always remain free, open-source, and powerful."
+                </blockquote>
+                <cite class="text-gray-600">- [Creator Name], Creator of Codiner</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    FAQ
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700">
+                    Frequently Asked Questions
+                </h3>
+            </div>
+
+            <div class="space-y-8">
+                <div class="border-b border-gray-200 pb-8">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Is Codiner free? What's the catch?</h4>
+                    <p class="text-gray-600">Yes, Codiner is completely free and open-source. There are no catches or hidden costs. We offer Pro and Max plans for users who want additional features and AI credits, but the core app remains free forever.</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-8">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">What can you build with Codiner?</h4>
+                    <p class="text-gray-600">You can build any kind of web application with Codiner—from simple landing pages to complex full-stack applications. Our Supabase integration allows you to add authentication, databases, and real-time features to your apps.</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-8">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Can you build desktop apps with Codiner?</h4>
+                    <p class="text-gray-600">Currently, Codiner focuses on web applications. However, you can use the generated web apps as the foundation for desktop applications using tools like Electron or Tauri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="/logo.png" alt="Codiner" class="h-8 w-8 mr-2">
+                        <span class="text-xl font-bold">Codiner</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Flexible, local, open-source AI app builder</p>
+                    <div class="flex space-x-4">
+                        <a href="#github" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#twitter" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4">Product</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+                        <li><a href="#download" class="hover:text-white">Download</a></li>
+                        <li><a href="#docs" class="hover:text-white">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4">Company</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white">About</a></li>
+                        <li><a href="#blog" class="hover:text-white">Blog</a></li>
+                        <li><a href="#careers" class="hover:text-white">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4">Support</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#help" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#community" class="hover:text-white">Community</a></li>
+                        <li><a href="#status" class="hover:text-white">Status</a></li>
+                        <li><a href="#privacy" class="hover:text-white">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Codiner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 hidden">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full p-4 shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer animate-bounce-gentle">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+        </div>
+        <div class="absolute bottom-full right-0 mb-4 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-4 w-80 hidden" id="chat-popup">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-slate-900 dark:text-white">Codiner Support</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">Typically replies instantly</div>
+                    </div>
+                </div>
+                <button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" onclick="closeChat()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-3 mb-4">
+                <div class="bg-slate-100 dark:bg-slate-700 rounded-lg p-3 text-sm">
+                    Hi! 👋 Ready to build your next app with AI? I'm here to help!
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-700 rounded-lg p-3 text-sm">
+                    What's your project idea? I can help you get started in minutes.
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <input
+                    type="text"
+                    placeholder="Type your message..."
+                    class="flex-1 px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Capture Popup -->
+    <div id="email-popup" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
+                <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" onclick="closeEmailPopup()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                        Get Early Access
+                    </h3>
+
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">
+                        Join 5,000+ developers building the future. Get exclusive access to new features and early updates.
+                    </p>
+
+                    <form class="space-y-4" onsubmit="handleEmailSubmit(event)">
+                        <input
+                            type="email"
+                            placeholder="Enter your email address"
+                            class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required
+                        >
+                        <button
+                            type="submit"
+                            class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                        >
+                            Get Free Access
+                        </button>
+                    </form>
+
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-4">
+                        No spam, unsubscribe anytime. We respect your privacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced scroll effects
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            const scrolled = window.scrollY > 100;
+
+            if (scrolled) {
+                nav.classList.add('shadow-lg');
+                nav.classList.add('backdrop-blur-xl');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.remove('backdrop-blur-xl');
+            }
+
+            // Parallax effect for floating particles
+            const particles = document.querySelectorAll('.particle');
+            const scrollY = window.scrollY;
+
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                const yPos = -(scrollY * speed);
+                particle.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Feature tab switching
+        document.querySelectorAll('[data-category]').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Update active tab
+                document.querySelectorAll('[data-category]').forEach(t => {
+                    t.classList.remove('data-active');
+                });
+                this.classList.add('data-active');
+
+                // Here you would filter features based on category
+                // For now, we'll just add a visual indicator
+                console.log('Switched to category:', category);
+            });
+        });
+
+        // Typing animation for code demo
+        let currentLine = 0;
+        const codeLines = document.querySelectorAll('.font-mono .flex');
+
+        function typeNextLine() {
+            if (currentLine < codeLines.length) {
+                codeLines[currentLine].style.opacity = '1';
+                currentLine++;
+                setTimeout(typeNextLine, 200);
+            }
+        }
+
+        // Start typing animation when code demo comes into view
+        const codeDemo = document.querySelector('.bg-slate-900');
+        if (codeDemo) {
+            const codeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(typeNextLine, 500);
+                        codeObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            codeObserver.observe(codeDemo);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('[aria-label="Toggle menu"]');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                // Here you would implement mobile menu logic
+                console.log('Mobile menu toggle clicked');
+            });
+        }
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            // Hide loading animation if it exists
+            const loading = document.querySelector('.loading');
+            if (loading) {
+                loading.style.display = 'none';
+            }
+        });
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            // Skip to main content with Ctrl+Home
+            if (e.ctrlKey && e.key === 'Home') {
+                e.preventDefault();
+                const main = document.querySelector('main') || document.querySelector('#features');
+                if (main) {
+                    main.scrollIntoView({ behavior: 'smooth' });
+                    main.focus();
+                }
+            }
+        });
+
+        // Theme toggle (for demo purposes - would normally integrate with actual theme system)
+        document.querySelectorAll('[title*="theme"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.documentElement.classList.toggle('dark');
+                console.log('Theme toggled');
+            });
+        });
+
+        // Chat widget functionality
+        let chatVisible = false;
+        function toggleChat() {
+            const widget = document.getElementById('chat-widget');
+            const popup = document.getElementById('chat-popup');
+
+            if (chatVisible) {
+                popup.classList.add('hidden');
+                chatVisible = false;
+            } else {
+                popup.classList.remove('hidden');
+                chatVisible = true;
+            }
+        }
+
+        function closeChat() {
+            const popup = document.getElementById('chat-popup');
+            popup.classList.add('hidden');
+            chatVisible = false;
+        }
+
+        // Show chat widget after 3 seconds
+        setTimeout(() => {
+            const widget = document.getElementById('chat-widget');
+            widget.classList.remove('hidden');
+            widget.addEventListener('click', toggleChat);
+        }, 3000);
+
+        // Email popup functionality
+        function showEmailPopup() {
+            const popup = document.getElementById('email-popup');
+            popup.classList.remove('hidden');
+        }
+
+        function closeEmailPopup() {
+            const popup = document.getElementById('email-popup');
+            popup.classList.add('hidden');
+        }
+
+        function handleEmailSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+
+            // Here you would send the email to your backend
+            console.log('Email submitted:', email);
+
+            // Show success message
+            alert('Thanks! We\'ll be in touch soon.');
+
+            closeEmailPopup();
+        }
+
+        // Show email popup on exit intent (when mouse leaves the page)
+        let exitIntentShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY < 0 && !exitIntentShown) {
+                exitIntentShown = true;
+                setTimeout(showEmailPopup, 1000);
+            }
+        });
+
+        // Authentication Modal Functionality
+        let authStep = 'auth';
+        let authMode = 'signin';
+
+        function showAuthModal(mode = 'signin') {
+            authMode = mode;
+            authStep = 'auth';
+            const modal = document.getElementById('auth-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            // Reset form
+            const form = document.getElementById('auth-form');
+            form.reset();
+            updateAuthUI();
+        }
+
+        function closeAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            authStep = 'auth';
+        }
+
+        function updateAuthUI() {
+            const title = document.getElementById('auth-title');
+            const submitBtn = document.getElementById('auth-submit');
+            const modeSwitch = document.getElementById('auth-mode-switch');
+            const verifySection = document.getElementById('auth-verify-section');
+            const confirmPasswordField = document.querySelector('.signup-only');
+
+            if (authStep === 'verify') {
+                title.textContent = 'Verify Your Email';
+                submitBtn.textContent = 'Verify Code';
+                modeSwitch.classList.add('hidden');
+                verifySection.classList.remove('hidden');
+                if (confirmPasswordField) confirmPasswordField.classList.add('hidden');
+            } else {
+                title.textContent = authMode === 'signin' ? 'Welcome Back' : 'Create Your Account';
+                submitBtn.textContent = authMode === 'signin' ? 'Sign In' : 'Create Account';
+                modeSwitch.classList.remove('hidden');
+                verifySection.classList.add('hidden');
+
+                // Show/hide confirm password field
+                if (confirmPasswordField) {
+                    if (authMode === 'signup') {
+                        confirmPasswordField.classList.remove('hidden');
+                    } else {
+                        confirmPasswordField.classList.add('hidden');
+                    }
+                }
+            }
+        }
+
+        function toggleAuthMode() {
+            authMode = authMode === 'signin' ? 'signup' : 'signin';
+            updateAuthUI();
+        }
+
+        function handleAuthSubmit(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const email = formData.get('email');
+            const password = formData.get('password');
+
+            if (authStep === 'verify') {
+                const code = formData.get('verification-code');
+                if (code && code.length === 6) {
+                    // Simulate verification
+                    showSuccessModal();
+                    setTimeout(() => {
+                        closeAuthModal();
+                        alert('Welcome to Codiner! Your account is now verified.');
+                    }, 2000);
+                } else {
+                    alert('Please enter a valid 6-digit verification code.');
+                }
+                return;
+            }
+
+            if (authMode === 'signup') {
+                const confirmPassword = formData.get('confirm-password');
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match.');
+                    return;
+                }
+                if (password.length < 6) {
+                    alert('Password must be at least 6 characters.');
+                    return;
+                }
+
+                // Simulate sending verification code
+                authStep = 'verify';
+                updateAuthUI();
+                alert(`Verification code sent to ${email}. Use code: 123456 for demo.`);
+            } else {
+                // Simulate sign in
+                if (email && password) {
+                    showSuccessModal();
+                    setTimeout(() => {
+                        closeAuthModal();
+                        alert('Successfully signed in! Redirecting to dashboard...');
+                        // In real app, redirect to dashboard
+                        // window.location.href = '/dashboard';
+                    }, 2000);
+                }
+            }
+        }
+
+        function handleGoogleSignIn() {
+            // Simulate Google OAuth
+            alert('Redirecting to Google...');
+            // In real implementation, redirect to Google OAuth
+            // window.location.href = '/auth/google';
+
+            // For demo, show success
+            setTimeout(() => {
+                showSuccessModal();
+                setTimeout(() => {
+                    closeAuthModal();
+                    alert('Successfully signed in with Google!');
+                }, 2000);
+            }, 1000);
+        }
+
+        function handleGithubSignIn() {
+            // Simulate GitHub OAuth
+            alert('Redirecting to GitHub...');
+            // In real implementation, redirect to GitHub OAuth
+
+            // For demo, show success
+            setTimeout(() => {
+                showSuccessModal();
+                setTimeout(() => {
+                    closeAuthModal();
+                    alert('Successfully signed in with GitHub!');
+                }, 2000);
+            }, 1000);
+        }
+
+        function showSuccessModal() {
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = `
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Success!</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Processing your request...</p>
+                    <div class="mt-6 w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full animate-pulse" style="width: 100%; animation: loading-bar 2s ease-in-out;"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Add loading bar animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes loading-bar {
+                0% { width: 0%; }
+                50% { width: 70%; }
+                100% { width: 100%; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Close modal when clicking outside
+        document.getElementById('auth-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAuthModal();
+            }
+        });
+
+        console.log('🚀 Codiner landing page loaded successfully!');
+        console.log('✨ Conversion-optimized with chat widget, email capture, and authentication!');
+    </script>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
+                <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" onclick="closeAuthModal()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 id="auth-title" class="text-2xl font-bold text-slate-900 dark:text-white">Welcome Back</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">Build amazing apps with AI-powered tools</p>
+                </div>
+
+                <form id="auth-form" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                    <!-- Email Field -->
+                    <div class="space-y-2">
+                        <label for="auth-email" class="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <input
+                                id="auth-email"
+                                name="email"
+                                type="email"
+                                required
+                                class="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
+                                placeholder="john@example.com"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="space-y-2">
+                        <label for="auth-password" class="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            <input
+                                id="auth-password"
+                                name="password"
+                                type="password"
+                                required
+                                class="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
+                                placeholder="••••••••"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password (only for signup) -->
+                    <div class="space-y-2 signup-only hidden">
+                        <label for="auth-confirm-password" class="text-sm font-medium text-slate-700 dark:text-slate-300">Confirm Password</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            <input
+                                id="auth-confirm-password"
+                                name="confirm-password"
+                                type="password"
+                                class="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
+                                placeholder="••••••••"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Verification Code Section -->
+                    <div id="auth-verify-section" class="space-y-2 hidden">
+                        <label for="verification-code" class="text-sm font-medium text-slate-700 dark:text-slate-300">Verification Code</label>
+                        <input
+                            id="verification-code"
+                            name="verification-code"
+                            type="text"
+                            maxlength="6"
+                            class="w-full text-center text-2xl font-mono tracking-widest border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white py-3"
+                            placeholder="000000"
+                        >
+                        <p class="text-xs text-slate-500 dark:text-slate-400 text-center">
+                            Enter the 6-digit code sent to your email
+                        </p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button
+                        id="auth-submit"
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus-ring"
+                    >
+                        Sign In
+                    </button>
+                </form>
+
+                <!-- Auth Mode Switch -->
+                <div id="auth-mode-switch" class="text-center mt-6">
+                    <button
+                        type="button"
+                        onclick="toggleAuthMode()"
+                        class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                    >
+                        Don't have an account? <span class="font-semibold text-blue-600">Sign up</span>
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white dark:bg-slate-800 text-slate-500">Or continue with</span>
+                    </div>
+                </div>
+
+                <!-- Social Login -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button
+                        onclick="handleGoogleSignIn()"
+                        class="flex items-center justify-center px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors focus-ring"
+                    >
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google
+                    </button>
+
+                    <button
+                        onclick="handleGithubSignIn()"
+                        class="flex items-center justify-center px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors focus-ring"
+                    >
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </button>
+                </div>
+
+                <!-- Terms -->
+                <div class="text-center mt-6">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        By signing up, you agree to our
+                        <a href="#" class="text-blue-600 hover:text-blue-700">Terms of Service</a> and
+                        <a href="#" class="text-blue-600 hover:text-blue-700">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

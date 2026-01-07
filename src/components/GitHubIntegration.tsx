@@ -55,13 +55,13 @@ export function GitHubIntegration() {
         <div className="bg-white dark:bg-zinc-900 p-3 rounded-2xl shadow-sm border border-zinc-500/10">
           <Github className="h-6 w-6 md:h-8 md:w-8 text-[#181717] dark:text-white" />
         </div>
-        <div className="space-y-1">
-          <h3 className="text-lg md:text-xl font-black tracking-tight leading-none">GitHub Infrastructure</h3>
-          <p className="text-sm md:text-base text-muted-foreground font-medium max-w-sm mx-auto">
-            Connect your GitHub account to sync repositories and enable collaboration
-          </p>
-          <p className="text-xs text-muted-foreground/60 font-medium">Secure OAuth device flow authentication</p>
-        </div>
+            <div className="space-y-1">
+              <h3 className="text-lg md:text-xl font-black tracking-tight leading-none">GitHub Infrastructure</h3>
+              <p className="text-sm md:text-base text-muted-foreground font-medium max-w-sm mx-auto">
+                Connect your GitHub account to sync repositories and enable collaboration
+              </p>
+              <p className="text-xs text-muted-foreground/60 font-medium">Secure GitHub Device Flow OAuth</p>
+            </div>
 
         <Button
           onClick={handleConnectToGithub}
