@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codiner - Flexible, local, open-source AI app builder</title>
+    <meta name="description" content="Use your favorite AI models and tools with zero lock-in. Build unlimited AI apps locally with Codiner.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'codiner-blue': '#3b82f6',
+                        'codiner-dark': '#1e293b',
+                        'codiner-light': '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center">
+                        <img src="/logo.png" alt="Codiner" class="h-8 w-8 mr-2">
+                        <span class="text-xl font-bold text-gray-900">Codiner</span>
+                    </div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#docs" class="text-gray-600 hover:text-gray-900">Docs</a>
+                        <a href="#blog" class="text-gray-600 hover:text-gray-900">Blog</a>
+                        <a href="#hub" class="text-gray-600 hover:text-gray-900">Hub</a>
+                        <a href="#members" class="text-gray-600 hover:text-gray-900">Members</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#pro" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-shadow">
+                        Codiner Pro
+                    </a>
+                    <a href="#download" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 gradient-bg hero-pattern">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <div class="flex justify-center items-center space-x-4 mb-8">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-full p-3">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white">
+                        Flexible, local, open-source<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">AI app builder</span>
+                    </h1>
+                </div>
+
+                <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Use your favorite AI models and tools with zero lock-in
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
+                    <a href="#download" class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Download Codiner for macOS (Apple Silicon)</span>
+                    </a>
+
+                    <div class="text-white text-sm">
+                        <div class="flex items-center space-x-4">
+                            <span>Downloaded 1M+ times</span>
+                            <span>•</span>
+                            <span>Free, no sign-up required</span>
+                            <span>•</span>
+                            <span>4.9/5 reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button class="bg-black/20 hover:bg-black/30 text-white px-6 py-3 rounded-lg font-medium backdrop-blur-sm">
+                        macOS (Apple Silicon)
+                    </button>
+                    <button class="bg-black/20 hover:bg-black/30 text-white px-6 py-3 rounded-lg font-medium backdrop-blur-sm">
+                        macOS (Intel)
+                    </button>
+                    <button class="bg-black/20 hover:bg-black/30 text-white px-6 py-3 rounded-lg font-medium backdrop-blur-sm">
+                        Windows
+                    </button>
+                </div>
+
+                <p class="text-gray-300 mb-8">
+                    Looking for Linux? <a href="#linux" class="text-blue-300 hover:text-blue-200 underline">→ New here?</a> You can build your first app in about 5 minutes.
+                </p>
+
+                <a href="#quickstart" class="inline-flex items-center text-blue-300 hover:text-blue-200 font-medium">
+                    Read the quickstart guide
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Limitless
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                    Build unlimited AI apps—without the lock-in.
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 mb-6">
+                        <svg class="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Launch your full-stack app entirely in Codiner</h4>
+                        <p class="text-gray-600">With Codiner's Supabase integration—including Auth, Database, and Server Functions—build more than just UI. Make your MVP all in Codiner.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 mb-6">
+                        <svg class="w-16 h-16 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Any AI model, including free tiers</h4>
+                        <p class="text-gray-600">You're not tied to one vendor or model. Use your own API keys with top models like Gemini 3, OpenAI's GPT-5, Claude Sonnet 4.5, and more.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 mb-6">
+                        <svg class="w-16 h-16 text-purple-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">No lock-in, your tools, your code</h4>
+                        <p class="text-gray-600">All source code remains on your machine. Use your preferred IDE (VS Code, Cursor, etc.) and seamlessly integrate Codiner into your existing workflow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Local
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                    Privacy, speed, and smooth workflows—you get them all by running Codiner locally.
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Local Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm">
+                        <svg class="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Build with your favorite local models</h4>
+                        <p class="text-gray-600">Got a powerful machine? Codiner makes it easy to run models locally with Ollama for full data privacy.</p>
+                    </div>
+                </div>
+
+                <!-- Local Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm">
+                        <svg class="w-16 h-16 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Fast, Fluid User Experience</h4>
+                        <p class="text-gray-600">Codiner runs locally on your machine, providing instant, responsive interactions. Edit your app, preview changes immediately, or effortlessly undo steps with real-time feedback.</p>
+                    </div>
+                </div>
+
+                <!-- Local Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm">
+                        <svg class="w-16 h-16 text-purple-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">Frictionless local development</h4>
+                        <p class="text-gray-600">Encountered those frustrating differences between cloud-based AI builders and your local dev environment? Codiner eliminates those hassles. Build and test your app locally with full control.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Feedback
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                    Loved by builders around the world
+                </h3>
+                <p class="text-gray-600 mb-8">See what users are saying about Codiner across social media and community platforms.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">@Fluxer_automações</p>
+                            <p class="text-sm text-gray-500">Social Media</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Codiner completely changed the way I build web interfaces. What I love the most is how intuitive and fast it is — it feels like having a design and dev partner that truly understands my ideas."</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">u/redditissocoolyoyo</p>
+                            <p class="text-sm text-gray-500">Reddit</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"I built a poker game with Codiner. It worked very well. The team is working very diligently to add enhancements and fix bugs to make Codiner an even better tool. Best of all, it's local."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">u/morgankhalil</p>
+                            <p class="text-sm text-gray-500">Reddit</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"You're a genius. This is better than 95% of the other things I have tried, and I've tried them all. Going back 25 years haha. You're really on to something here."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Community
+            </h2>
+            <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                More than an app, it's a community.
+            </h3>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+                Your feedback shapes our software—every release includes improvements and features you asked for.
+            </p>
+
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="#reddit" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 6.628 5.374 12 12 12s12-5.372 12-12C24 5.373 18.626 0 12 0zm5.568 8.16c-.793 0-1.437.644-1.437 1.437s.644 1.437 1.437 1.437 1.437-.644 1.437-1.437-.644-1.437-1.437-1.437zm-11.136 0c-.793 0-1.437.644-1.437 1.437s.644 1.437 1.437 1.437 1.437-.644 1.437-1.437-.644-1.437-1.437-1.437zM12 4.5c2.669 0 4.833 2.164 4.833 4.833 0 .61-.132 1.192-.371 1.722-.005.012-.012.023-.012.035 0 0-.74 4.072-4.452 4.072s-4.452-4.072-4.452-4.072c0-.012-.007-.023-.012-.035-.239-.53-.371-1.112-.371-1.722C7.167 6.664 9.331 4.5 12 4.5zm2.283 10.833c.106.106.247.166.398.166.151 0 .292-.06.398-.166.196-.196.196-.514 0-.71-.093-.093-.217-.145-.398-.145s-.305.052-.398.145c-.196.196-.196.514 0 .71zm-4.566 0c.106.106.247.166.398.166.151 0 .292-.06.398-.166.196-.196.196-.514 0-.71-.093-.093-.217-.145-.398-.145s-.305.052-.398.145c-.196.196-.196.514 0 .71z"/>
+                    </svg>
+                    <span>Reddit</span>
+                </a>
+                <a href="#github" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="#twitter" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                    <span>X (Twitter)</span>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 max-w-md mx-auto">
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">Meet our community ambassadors</h4>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://via.placeholder.com/48" alt="Ambassador" class="w-12 h-12 rounded-full">
+                        <div>
+                            <p class="font-semibold">Community Builder</p>
+                            <p class="text-sm text-gray-600">YouTube Channel • Help Center</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Subscribe to our newsletter
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Stay updated with new releases and upcoming features — spam-free.
+            </p>
+
+            <div class="max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input
+                        type="email"
+                        placeholder="Email address"
+                        class="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                    >
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Plans
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">
+                    Pick the right plan for your app building journey
+                </h3>
+                <p class="text-gray-600">
+                    Codiner offers flexible plans for every budget because app builders aren't one-size-fits-all.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-transparent hover:border-blue-200 transition-colors">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Codiner Free</h3>
+                        <div class="text-4xl font-bold text-gray-900 mb-6">Free</div>
+
+                        <p class="text-gray-600 mb-8">Perfect for getting started and building apps.</p>
+
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Local, open-source AI App Builder
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Downloadable for macOS & Windows
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                No sign-up required
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Bring your own API key
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Community support
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            RECOMMENDED
+                        </span>
+                    </div>
+
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Codiner Pro</h3>
+                        <div class="text-4xl font-bold text-gray-900 mb-2">$20</div>
+                        <div class="text-gray-600 mb-6">/month</div>
+
+                        <p class="text-gray-600 mb-8">Unlock powerful AI modes and exclusive Pro features.</p>
+
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Everything in Codiner Free plus...
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Exclusive Pro modes to work on large codebases
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                200 AI credits/month
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Full Codiner Academy access
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-shadow">
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Max Plan -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-transparent hover:border-purple-200 transition-colors">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Codiner Max</h3>
+                        <div class="text-4xl font-bold text-gray-900 mb-2">$79</div>
+                        <div class="text-gray-600 mb-6">/month</div>
+
+                        <p class="text-gray-600 mb-8">For building large, complex apps.</p>
+
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Everything in Codiner Pro plus...
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                900 AI credits/month
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Prioritized access to office hours
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Reload credits at any time
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Available as upgrade
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-600">
+                    Have the freedom to upgrade or downgrade whenever you want – there's no lock-in.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Creator Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Why I created Codiner...
+            </h2>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm mb-8">
+                <img src="https://via.placeholder.com/120x120" alt="Creator" class="w-30 h-30 rounded-full mx-auto mb-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">[Creator Name], Creator of Codiner</h3>
+                <blockquote class="text-lg text-gray-700 italic mb-6">
+                    "I created Codiner as a free, local, and open-source alternative because I believe builders should feel like true owners—not renters—of their app-building platform. Codiner eliminates artificial limits and provides a fully capable app builder you can use freely from start to finish. Codiner app will always remain free, open-source, and powerful."
+                </blockquote>
+                <cite class="text-gray-600">- [Creator Name], Creator of Codiner</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    FAQ
+                </h2>
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-700">
+                    Frequently Asked Questions
+                </h3>
+            </div>
+
+            <div class="space-y-8">
+                <div class="border-b border-gray-200 pb-8">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Is Codiner free? What's the catch?</h4>
+                    <p class="text-gray-600">Yes, Codiner is completely free and open-source. There are no catches or hidden costs. We offer Pro and Max plans for users who want additional features and AI credits, but the core app remains free forever.</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-8">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">What can you build with Codiner?</h4>
+                    <p class="text-gray-600">You can build any kind of web application with Codiner—from simple landing pages to complex full-stack applications. Our Supabase integration allows you to add authentication, databases, and real-time features to your apps.</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-8">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Can you build desktop apps with Codiner?</h4>
+                    <p class="text-gray-600">Currently, Codiner focuses on web applications. However, you can use the generated web apps as the foundation for desktop applications using tools like Electron or Tauri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="/logo.png" alt="Codiner" class="h-8 w-8 mr-2">
+                        <span class="text-xl font-bold">Codiner</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Flexible, local, open-source AI app builder</p>
+                    <div class="flex space-x-4">
+                        <a href="#github" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#twitter" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4">Product</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+                        <li><a href="#download" class="hover:text-white">Download</a></li>
+                        <li><a href="#docs" class="hover:text-white">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4">Company</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white">About</a></li>
+                        <li><a href="#blog" class="hover:text-white">Blog</a></li>
+                        <li><a href="#careers" class="hover:text-white">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4">Support</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#help" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#community" class="hover:text-white">Community</a></li>
+                        <li><a href="#status" class="hover:text-white">Status</a></li>
+                        <li><a href="#privacy" class="hover:text-white">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Codiner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll effect for navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
